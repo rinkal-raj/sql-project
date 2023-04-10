@@ -25,4 +25,5 @@ for unit price
 UPDATE analytics 
 SET unit_price = unit_price /100000
 
-
+UPDATE all_sessions 
+SET productprice = productprice /100000
