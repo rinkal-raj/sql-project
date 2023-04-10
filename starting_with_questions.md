@@ -110,7 +110,7 @@ SQL Queries:  SELECT country,city,
 Answer: ![alt desc](img/task-5.png)
         total rows:358
 
-In the column of productrevenue has no available any kind of data so i find only null values.
+In the column of productrevenue has no available any kind of data and also checked in excel sheet so i find only null values.
 
 
 
