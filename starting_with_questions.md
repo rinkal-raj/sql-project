@@ -40,8 +40,8 @@ SQL Queries:    SELECT DISTINCT
 
 
 
-Answer:
-
+Answer: ![alt desc](img/task-2.png)
+         total rows:4947
 
 
 
@@ -61,8 +61,8 @@ SQL Queries:        SELECT DISTINCT type,
 
 
 
-Answer:
-
+Answer: ![alt desc](img/task-3.png)
+        total rows:514
 
 
 
@@ -86,26 +86,29 @@ SQL Queries:
 
 
 
-Answer:
-
+Answer:  ![alt desc](img/task-4.png)
+         total rows:2826
 
 
 
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
-SQL Queries:  SELECT country,city,SUM(productrevenue) AS total_productrevenue
-                FROM all_sessions a
-                JOIN products  p on a.productsku=p.sku
-                JOIN sales_by_sku s on s.productsku=p.sku
-                where country != '(not set)' and city != '(not set)'
-                group by country,city
-                order by country,city,total_productrevenue desc
+SQL Queries:  SELECT country,city,
+                SUM(productrevenue) AS    total_productrevenue
+                FROM all_sessions AS sessions
+                JOIN products AS pro
+				ON sessions.productsku=pro.sku
+                JOIN sales_by_sku AS sales
+				ON sales.productsku=pro.sku
+                WHERE country != '(not set)' AND city != '(not set)'
+                GROUP BY country,city
+                ORDER BY country,city,total_productrevenue DESC
 
 
 
-Answer:
-
+Answer: ![alt desc](img/task-5.png)
+        total rows:358
 
 
 
