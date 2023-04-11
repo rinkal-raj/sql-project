@@ -4,7 +4,7 @@ Answer the following questions and provide the SQL queries used to find the answ
 **Question 1: Which cities and countries have the highest level of transaction revenues on the site?**
 
 
-SQL Queries:    SELECT DISTINCT city,
+SQL Queries:   ``` SELECT DISTINCT city,
                         country,
                         transactionrevenue
                           FROM   all_sessions
@@ -15,7 +15,7 @@ SQL Queries:    SELECT DISTINCT city,
 	                	FROM
 	            		all_sessions
                     	)
-
+                ```
 
 
 
@@ -35,6 +35,11 @@ SQL Queries:    SELECT DISTINCT
                      FROM sales_by_sku AS sales
 		                    INNER JOIN all_sessions AS sessions
 		                    ON sales.productsku = sessions.productsku
+							 WHERE city !='not available in demo dataset'
+                AND country !='not available in demo dataset'
+				AND city != 'not set'
+				AND country !='not set'
+				AND total_ordered!= '0'
 	                    	GROUP BY sales.productsku,sessions.city,
 		                             sessions.country,sessions.visitid, sessions.productsku
 
@@ -54,9 +59,12 @@ SQL Queries:        SELECT DISTINCT type,
 				                    country
                                     FROM all_sessions AS sessions
                                     LEFT JOIN analytics AS ana
-                                    ON ana.fullvisitorid = sessions.fullvisitorid
-                                    LEFT JOIN sales_report AS sales
+                                    ON ana.fullvisitorid = sessions.fullvisitorid                                LEFT JOIN sales_report AS sales
                                     ON sessions.productsku = sales.productsku
+									 WHERE country != '(not set)' AND city != '(not set)'
+                 AND city !='not available in demo dataset'
+				AND country !='not available in demo dataset'
+
 
 
 
@@ -71,7 +79,7 @@ Answer: ![alt desc](img/task-3.png)
 
 
 SQL Queries:    
-                    SELECT  DISTINCT city,
+           SELECT  DISTINCT city,
 				country,
 				reports.name,
 				MAX(total_ordered) as highorder
@@ -79,9 +87,11 @@ SQL Queries:
                      JOIN sales_report AS reports
                 ON sessions.productsku = reports.productsku 
                 WHERE city !='not available in demo dataset'
+                AND country !='not available in demo dataset'
+				AND city != 'not set'
+				AND country !='not set'
                 GROUP BY reports.name,city,country
                 ORDER BY highorder DESC
-
 
 
 
@@ -102,6 +112,8 @@ SQL Queries:  SELECT country,city,
                 JOIN sales_by_sku AS sales
 				ON sales.productsku=pro.sku
                 WHERE country != '(not set)' AND city != '(not set)'
+                 AND city !='not available in demo dataset'
+				AND country !='not available in demo dataset'
                 GROUP BY country,city
                 ORDER BY country,city,total_productrevenue DESC
 
@@ -113,16 +125,20 @@ Answer: ![alt desc](img/task-5.png)
 In the column of productrevenue has no available any kind of data and also checked in excel sheet so i find only null values.
 so that I used product price from all_sessions table
 
-SELECT country,city,
-                SUM(productprice) AS    total_productrevenue
-                FROM all_sessions AS sessions
-                JOIN products AS pro
-				ON sessions.productsku=pro.sku
-                JOIN sales_by_sku AS sales
-				ON sales.productsku=pro.sku
-                WHERE country != '(not set)' AND city != '(not set)'
-                GROUP BY country,city
-                ORDER BY country,city,total_productrevenue DESC
+
+          SELECT  DISTINCT city,
+				country,
+				reports.name,
+				MAX(total_ordered) as highorder
+				FROM all_sessions AS sessions
+                     JOIN sales_report AS reports
+                ON sessions.productsku = reports.productsku 
+                WHERE city !='not available in demo dataset'
+				AND country !='not available in demo dataset'
+				AND city != 'not set'
+				AND country !='not set'
+                GROUP BY reports.name,city,country
+                ORDER BY highorder DESC
  ![alt desc](img/task-5-1.png)
         total rows:358
 
