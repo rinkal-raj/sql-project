@@ -18,7 +18,7 @@ Answer: 120018
 
 Question 3: find the total number of unique visitors by referring sites
 
-SQL Queries:SELECT COUNT(DISTINCT visitid)
+SQL Queries:  SELECT COUNT(DISTINCT visitid)
 FROM all_sessions
 WHERE channelGrouping = 'Referral'
 
