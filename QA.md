@@ -2,6 +2,7 @@ What are your risk areas? Identify and describe them.
 Risk areas are:
 when i tried to delete duplicate and null values i deleted my all data from table.
 
+
 QA Process:
 Describe your QA process and include the SQL queries used to execute it.
 First i removed all messy and duplicate data from all tables.
@@ -24,3 +25,4 @@ ALTER TABLE new_analytics RENAME TO analytics;
 i wrote query in proper way which saw in QA process and  also i gave proper name to allises.
 
 i tried to write code proper way which included in QA process.
+made code more precise.
