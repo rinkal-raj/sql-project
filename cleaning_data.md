@@ -21,9 +21,18 @@ DROP TABLE all_sessions;
 ALTER TABLE new_all_sessions RENAME TO all_sessions;
 
 Make proper data of unit price :
+
 for unit price
 UPDATE analytics 
 SET unit_price = unit_price /100000
 
 UPDATE all_sessions 
 SET productprice = productprice /100000
+
+REMOVE null value
+DELETE FROM all_sessions
+WHERE eCommerceAction_type = NULL
+AND eCommerceAction_step = NULL
+AND eCommerceAction_option = NULL
+
+I applied this kind of query in all tables.
