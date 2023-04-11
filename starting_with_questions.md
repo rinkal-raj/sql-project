@@ -45,8 +45,8 @@ SQL Queries:
 				AND city != 'not set'
 				AND country !='not set'
 				AND total_ordered!= '0'
-	         GROUP BY sales.productsku,sessions.city,
-		    sessions.country,sessions.visitid,sessions.productsku
+	          GROUP BY sales.productsku,sessions.city,
+		sessions.country,sessions.visitid,sessions.productsku
 
 
 
