@@ -111,6 +111,20 @@ Answer: ![alt desc](img/task-5.png)
         total rows:358
 
 In the column of productrevenue has no available any kind of data and also checked in excel sheet so i find only null values.
+so that I used product price from all_sessions table
+
+SELECT country,city,
+                SUM(productprice) AS    total_productrevenue
+                FROM all_sessions AS sessions
+                JOIN products AS pro
+				ON sessions.productsku=pro.sku
+                JOIN sales_by_sku AS sales
+				ON sales.productsku=pro.sku
+                WHERE country != '(not set)' AND city != '(not set)'
+                GROUP BY country,city
+                ORDER BY country,city,total_productrevenue DESC
+ ![alt desc](img/task-5-1.png)
+        total rows:358
 
 
 
