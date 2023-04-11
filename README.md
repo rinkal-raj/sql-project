@@ -2,6 +2,8 @@
 
 ## Project/Goals
 Project/Goals :
+The main goal is to improve sql skills like cleaning,analysis and QA which i learned last week.
+now i talked about data :
 The project is about various kind of products on online sites.
  The main goals of this data to find which product demand is higher than others and which categories of products are available.
 Find unique values of visitors id and their cities and countries .
