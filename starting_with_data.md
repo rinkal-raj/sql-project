@@ -44,8 +44,4 @@ Answer:![alt desc](img/que-4.png)
 
 
 
-Question 5: 
 
-SQL Queries:
-
-Answer:
